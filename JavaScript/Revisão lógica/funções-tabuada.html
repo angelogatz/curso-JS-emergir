@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loops</title>
+    <style>
+
+        body{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 5px solid red;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 100vh;
+            height: 100%;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .buttons{
+            flex-direction: row;
+        }
+
+        #output{
+            align-items: center;
+            padding: 10px;
+            text-align: center;
+            flex-direction: row;
+            width: 300px;
+            height: 50vh;
+            box-shadow: 1px 2px 3px 1px #cfcfcf;
+            background-color: #e4e3e3;
+            overflow-y: scroll;
+        }
+
+        .btn{
+            text-align: center;
+            outline: none;
+            width: 100px;
+            height: auto;
+            margin: 5px;
+            border: 1px solid #e4e4e4;
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            background-color: #e4e4e4;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>funções - tabuada</h1>
+
+    <div class="buttons">
+        <button class="btn" onclick="mostrarTabuada()" value="Mostrar tabuada">Mostrar Tabuada</button>
+        <button class="btn" onclick="esconderTabuada()" value="Esconder tabuada">Esconder Tabuada</button>
+    </div>
+    <div id="output">
+
+    </div>
+    
+
+
+
+    <script>
+
+        const output = document.getElementById("output");
+
+        function mostrarTabuada(){
+            let n = prompt("Digite um número para ver sua tabuada!");
+
+            let i = 0;
+
+            let msg = ""
+
+            while(i <= 1000){
+                msg += (`${i} x ${n} = ${i * n} <br>`);
+                i++
+            }
+
+            output.innerHTML = msg
+        }
+
+        function esconderTabuada(){
+            output.innerHTML = ""
+        }
+        
+
+    </script>
+</body>
+</html>
