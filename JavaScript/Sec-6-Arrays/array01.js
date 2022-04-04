@@ -8,13 +8,17 @@ let soNumeros = arr.some( function(el) {
     return typeof el === "number" && el > 20
 })
 
-const arr1 = arr.filter(function(elemento, indice, _propria_arr){
+let arr1 = arr.filter(function(elemento, indice, _propria_arr){
     return typeof elemento === "number" && elemento < 8
 })
 
 arr.forEach(function(elemento, indice, _propria_arr){
-    console.log(elemento. indice)
+    console.log(elemento)
     
+})
+
+arr1 = arr1.map(function(elemento, indice, _propria_arr){
+    return elemento * elemento
 })
 
 console.log(arr)

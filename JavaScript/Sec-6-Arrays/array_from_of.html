@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis saepe odio, culpa sint unde asperiores eum cumque atque molestias eos earum id incidunt natus et quo officiis ea quae sunt?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis saepe odio, culpa sint unde asperiores eum cumque atque molestias eos earum id incidunt natus et quo officiis ea quae sunt?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis saepe odio, culpa sint unde asperiores eum cumque atque molestias eos earum id incidunt natus et quo officiis ea quae sunt?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis saepe odio, culpa sint unde asperiores eum cumque atque molestias eos earum id incidunt natus et quo officiis ea quae sunt?</p>
+
+
+
+    <script>
+        const arr1 = new Array(3)
+        console.log(arr1)
+        console.log(arr1.length)
+
+        const arr3 = Array.of(3)
+        console.log(arr3)
+        console.log(arr3.length)
+
+        const arr2 = Array.from(arr1)
+        arr2.push(4, 5)
+        //console.log(arr2)
+
+        const paragrafos = document.querySelectorAll("p")
+
+        console.log(paragrafos)
+        paragrafos.forEach(function(p){
+            console.log(p.textContent)
+        })
+
+        
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
