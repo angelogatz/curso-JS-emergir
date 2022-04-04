@@ -1,93 +1,57 @@
-(function () {
+(function(){
     'use strict';
 
+
+    //validando a entrada de dados no titulo do formulário
+    //impedindo que um formulário vazio seja enviado ao servidor/banco de dados
+    //fazendo o envio do formulario via listener do tipo "submit", para melhor atender outros navegadores
+
     const txtTitulo = document.getElementById("txtTitulo")
-    const btn = document.getElementById("btn")
-    const formCadastro = document.querySelector(".formCadastro")
+    const formCad = document.querySelector(".formCadastro")
+    
 
-    // btn.addEventListener("click", function (e) {
-
-    // })
-
-    formCadastro.addEventListener("submit", function (e) {
+    formCad.addEventListener("submit", function(e){
         console.log(txtTitulo.value)
-        if (!txtTitulo.value) {
-            showErrorMessage("Preencha todos os campos", function () {
-                txtTitulo.focus()
-            })
+        if(!txtTitulo.value){
+            alert("preencha todos os campos")
             e.preventDefault()
-
+            txtTitulo.focus()
         }
     })
 
-    const feedbackMessage = document.getElementById("feedbackMessage")
-    const feedbackMessageCloseBtn = feedbackMessage.getElementsByTagName("button")[0]
+    //validando numero maximo de caracteres da descrição e mostrando no contador
+    //utilizando o metodo de eventlistener "input", pois armazena somente oque for escrito no input
 
-    function showErrorMessage(msg, cb) {
-        // alert(msg)
-        // feedbackMessage.setAttribute("class", "show")
-        feedbackMessage.classList.add("show")
-        feedbackMessage.getElementsByTagName("p")[0].textContent = msg
-
-        feedbackMessageCloseBtn.focus()
-
-        function hideErrorMessage() {
-            console.log("clicado close")
-            feedbackMessage.classList.remove("show")
-
-            feedbackMessageCloseBtn.removeEventListener("click", hideErrorMessage)
-            feedbackMessageCloseBtn.removeEventListener("keyup", pressedKeyboardOnBtn)
-
-            if (typeof cb === "function") {
-                cb()
-            }
-        }
-
-        function pressedKeyboardOnBtn(e) {
-            if (e.keyCode === 27) {
-                hideErrorMessage()
-            }
-        }
-
-        feedbackMessageCloseBtn.addEventListener("click", hideErrorMessage)
-
-        feedbackMessageCloseBtn.addEventListener("keyup", pressedKeyboardOnBtn)
-
-
-
-
-    }
-
-
-
-
-    const txtDescricao = document.getElementById("txtDescricao")
+    const formDesc = document.getElementById("txtDescricao")
     const contadorContainer = document.getElementById("contador")
-    const resta = contadorContainer.getElementsByTagName("span")[0]
-    const maxima = txtDescricao.maxLength
+    const nrestante = document.getElementsByTagName("span")[0]
+    const maxima = formDesc.maxLength
+    mostrarNumeros(maxima)
 
-    mostrarNumero(maxima)
-
-    // contadorContainer.removeAttribute("style")
+    //contadorContainer.removeAttribute("style")
     contadorContainer.style.display = "block"
 
-    function checkLength() {
-        let numeroLetrasDigitdas = this.value.length
-        let caractersRestantes = parseInt(maxima) - parseInt(numeroLetrasDigitdas)
-        mostrarNumero(caractersRestantes)
+    function checkLength(){
+        let numeroLetrasDigitadas = this.value.length
+        let caracteresRestante = parseInt(maxima) - parseInt(numeroLetrasDigitadas)
+        mostrarNumeros(caracteresRestante)
+    }
+    
+    function mostrarNumeros(n){
+        nrestante.textContent = n
     }
 
-    function mostrarNumero(n) {
-        resta.textContent = n
+    formDesc.addEventListener("input", checkLength)
+ 
+
+    //validando a checkbox e liberando o acesso ao botão em caso de checkbox = "checked"
+    
+    const checkbox = document.getElementById("chkAceito").checked
+    const btnSub = document.getElementById("btn")
+
+    function liberaBtn(){
+        btnSub.disabled = !checkbox
     }
-    txtDescricao.addEventListener("input", checkLength)
-
-    btn.disabled = true
-
-    const chkAceito = document.getElementById("chkAceito")
-    chkAceito.addEventListener("change", function () {
-        btn.disabled = !this.checked
-    })
-
+    
 
 })()
