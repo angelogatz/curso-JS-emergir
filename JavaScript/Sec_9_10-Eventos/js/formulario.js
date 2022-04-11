@@ -13,10 +13,28 @@
     formCad.addEventListener("submit", function(e){
         console.log(txtTitulo.value)
         if(!txtTitulo.value){
-            alert("preencha todos os campos")
+            showErrorMessage("preencha todos os campos", function(){
+                txtTitulo.focus()
+            })
             e.preventDefault()
             txtTitulo.focus()
         }
+    })
+
+    const fbMsg = document.getElementById("feedbackMessage")
+    const fbmsgCloseBtn = fbMsg.getElementsByTagName("button")[0]
+
+    function showErrorMessage(msg, cb){
+        fbMsg.classList.add("show")
+        fbMsg.getElementsByTagName("p")[0].textContent = msg
+        
+        if (typeof cb === "function") {
+            cb()
+        }
+    }
+
+    fbMsg.addEventListener("click", function(){
+        fbMsg.classList.remove("show")
     })
 
     //validando numero maximo de caracteres da descrição e mostrando no contador
@@ -46,12 +64,15 @@
 
     //validando a checkbox e liberando o acesso ao botão em caso de checkbox = "checked"
     
-    const checkbox = document.getElementById("chkAceito").checked
+    const checkbox = document.getElementById("chkAceito")
     const btnSub = document.getElementById("btn")
 
-    function liberaBtn(){
-        btnSub.disabled = !checkbox
-    }
+    btnSub.disabled = true
+    checkbox.addEventListener("change", function(){
+        btnSub.disabled = !this.checked
+    })
+    
+    
     
 
 })()

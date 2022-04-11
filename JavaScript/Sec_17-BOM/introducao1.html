@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>teste bom curso</h1>
+
+    <a href="history.html">Vai para history.html</a>
+
+    <button id="openClose">abre com o metodo open</button>
+
+    <img src="https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg" alt="JS">
+    <hr>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo cum sit ipsa deleniti, inventore consequatur quisquam, dicta voluptas harum tempora magni nam aperiam sunt aliquid fugiat. Veniam delectus obcaecati consequuntur?</p>
+    
+
+    <script>
+        document.getElementById("openClose").addEventListener("click", function(){
+            window.open("history.html")
+        })
+        
+        window.addEventListener("load", function(){
+            console.log("load")
+        })
+        window.addEventListener("DOMContentLoaded", function(){
+            console.log("DOMContentLoaded")
+        })
+        window.addEventListener("resize", function(){
+            console.log("resize", innerHeight, innerWidth)
+        })
+        window.addEventListener("scroll", function(){
+            console.log("scroll", pageYOffset)
+        })
+
+        window.addEventListener("unload", function(){
+            console.log("unload")
+        })
+
+        window.addEventListener("beforeunload", function(){
+            console.log("beforeunload")
+        })
+    </script>
+</body>
+</html>

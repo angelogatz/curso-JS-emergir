@@ -1,11 +1,10 @@
 const obj1 = {
-    nome: "Daniel"
+    nome: "daniel"
 }
 
 const obj2 = new Object()
-obj2.nome = "Maria"
+obj2.nome = "maria"
 obj2["idade"] = 28
-
 console.log(obj1)
 console.log(obj2)
 
@@ -19,7 +18,3 @@ console.log(str2.length)
 const data1 = Date()
 console.log(data1)
 console.log(typeof data1)
-
-const data2 = new Date()
-console.log(data2)
-console.log(typeof data2)

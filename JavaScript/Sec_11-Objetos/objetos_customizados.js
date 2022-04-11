@@ -1,30 +1,37 @@
-function changeName(name) {
-    this.name = name
-    this.updatedAt = new Date()
+
+//function changeName(name){
+//
+//    console.log(this)
+//    
+//}
+
+const changeName = name =>{
+    console.log(this)
 }
 
+changeName("fora de objeto")
+
+
 const task1 = {
-    name: "task 1",
+    nome: "task1",
     createdAt: new Date(),
     updatedAt: null,
     completed: false,
-    changeName
+    changeName: changeName()
 }
 
 const task2 = {
-    name: "task 2",
+    nome: "task2",
     createdAt: new Date(),
     updatedAt: null,
-    completed: false,
-    changeName
+    completed: false
 }
+
 
 task1.name = "task 1 updated"
 task1.updatedAt = new Date()
 
-task1.changeName("nome atualizado")
+task1.changeName()
 
-task2.changeName("novo nome")
-
-// console.log(task1)
-console.log(task2)
+//console.log(task1)
+//console.log(task2)

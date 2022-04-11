@@ -75,12 +75,12 @@
         const container2 = document.querySelector(".container2")
         const btns = document.querySelectorAll(".container2 button");
 
-        //[...btns].forEach( btn => {
-        //    btn.addEventListener("click", function(e){
-        //        e.stopPropagation()
-        //        console.log(e.target)
-        //    })
-        //})
+        [...btns].forEach( btn => {
+           btn.addEventListener("click", function(e){
+               e.stopPropagation()
+                console.log(e.target)
+           })
+        })
 
         container2.addEventListener("click", function(e){
             e.stopPropagation()
