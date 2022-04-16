@@ -1,4 +1,4 @@
-function createXMLHttpRequest(method, url, cb, data = null) {
+export function createXMLHttpRequest(method, url, cb, data = null) {
     const xhr = new XMLHttpRequest()
 
     xhr.open(method, url)
@@ -17,6 +17,7 @@ function createXMLHttpRequest(method, url, cb, data = null) {
 
             } else if (typeof cb === "function") {
                 cb({
+                    error: true,
                     status: xhr.status,
                     message: "algo deu errado com a conexão"
                 })
