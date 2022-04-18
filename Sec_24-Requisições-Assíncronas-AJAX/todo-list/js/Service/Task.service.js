@@ -1,5 +1,6 @@
 
 import { createPromise } from "../createPromise.js"
+import { createFetch } from "../createFetch.js"
 import { urlTasks, urlUsers } from "../config.js"
 import {Task} from "./../Model/Task.model.js"
 
@@ -9,13 +10,14 @@ export default class TasksService{
     }
 
     add(task, cb, error, userId){
-        createPromise("POST", `${urlUsers}/${userId}/tasks`, JSON.stringify(task))
+        createFetch("POST", `${urlUsers}/${userId}/tasks`, JSON.stringify(task))
             .then(() =>  this.getTasks(userId))
             .then(() => cb())
             .catch(err => error(err))
     }
 
-    getTasks(userId, sucess, error){
+    async getTasks(userId, sucess, error){
+
         const fn = (arrTasks) => {
             this.tasks = arrTasks.map(task => {
                 const { title, completed, createdAt, updatedAt, id } = task
@@ -24,10 +26,11 @@ export default class TasksService{
             if(typeof sucess === "function") sucess(this.tasks)
             return this.tasks
         }
-        return createPromise("GET", `${urlUsers}/${userId}/tasks`)
+        return createFetch("GET", `${urlUsers}/${userId}/tasks`)
+            
             .then(response => {
                 fn(response)
-                return "teste de return dentro de um metodo then"
+                return fn(response)
             })
             .catch(erro =>{
                 if(typeof error === "function"){
@@ -39,7 +42,7 @@ export default class TasksService{
 
     remove(id, cb, error, userId){
       
-        createPromise("DELETE", `${urlTasks}/${id}`)
+        createFetch("DELETE", `${urlTasks}/${id}`)
             .then(() => this.getTasks(userId))
             .then(() => cb())
             .catch(err => error(err.message))
@@ -47,10 +50,8 @@ export default class TasksService{
 
     update(task, cb, error, userId){
         task.updatedAt = Date.now()
-        const fn = () => {
-            this.getTasks(userId, cb)
-        }
-        createPromise("PATCH", `${urlTasks}/${task.id}`, JSON.stringify(task))
+        
+        createFetch("PATCH", `${urlTasks}/${task.id}`, JSON.stringify(task))
             .then(() => this.getTasks(userId))
             .then(() => cb())
             .catch(err => error(err.message))
